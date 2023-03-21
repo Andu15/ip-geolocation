@@ -2,6 +2,7 @@ const $form = document.querySelector('#form');
 const $inputIp = document.querySelector('#ip');
 const $submit = document.querySelector('#submit');
 const $results = document.querySelector('#results');
+const $cleanBtn = document.querySelector('#clean-btn');
 
 const options = {
 	method: 'GET',
@@ -26,11 +27,16 @@ $form.addEventListener('submit', async (event) => {
   $submit.setAttribute('aria-busy', 'true')
 
   const ipInfo = await fetchIp(value)
-  
+
   if(ipInfo) {
     $results.innerHTML = JSON.stringify(ipInfo, null, 2)
   }
 
   $submit.removeAttribute('disabled')
   $submit.removeAttribute('aria-busy')
+})
+
+$cleanBtn.addEventListener('click', () => {
+  $form.reset();
+  $results.innerHTML = '';
 })
