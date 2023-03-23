@@ -25,6 +25,7 @@ $form.addEventListener('submit', async (event) => {
 
   $submit.setAttribute('disabled', '')
   $submit.setAttribute('aria-busy', 'true')
+  $submit.innerText = "Enviando..."
 
   const ipInfo = await fetchIp(value)
 
@@ -34,6 +35,7 @@ $form.addEventListener('submit', async (event) => {
 
   $submit.removeAttribute('disabled')
   $submit.removeAttribute('aria-busy')
+  $submit.innerText = "Buscar información de la IP"
 })
 
 $cleanBtn.addEventListener('click', () => {
