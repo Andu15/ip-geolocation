@@ -39,6 +39,8 @@ $form.addEventListener('submit', async (event) => {
 })
 
 $cleanBtn.addEventListener('click', () => {
+  $cleanBtn.innerText = "Limpiando..."
   $form.reset();
   $results.innerHTML = '';
+  $cleanBtn.innerText = "Limpiar registro"
 })
